@@ -126,15 +126,16 @@ sr.reveal('.about__img, .discount__data', { origin: 'right' });
 
 let obj = '';
 let url = 'https://rickandmortyapi.com/api/character/';
+
+const homeImage = document.querySelectorAll('.home__img');
+const homeTitle = document.querySelectorAll('.home__title');
+const homeSubtitle = document.querySelectorAll('.home__subtitle');
+
 fetch(url)
   .then((response) => response.json())
   .then((data) => (obj = data))
   .then(() => {
     for (let item of obj.results) {
-      const homeImage = document.querySelectorAll('.home__img');
-      const homeTitle = document.querySelectorAll('.home__title');
-      const homeSubtitle = document.querySelectorAll('.home__subtitle');
-
       homeSubtitle.forEach((subtitle) => {
         subtitle.innerHTML = `${item.location.name}`;
         console.log(item);
@@ -145,7 +146,7 @@ fetch(url)
       });
 
       homeImage.forEach((img) => {
-        img.setAttribute('src', `${item.image}`);
+        img.setAttribute('src', item.image);
         img.style.height = '250px';
         img.style.borderRadius = '.5rem';
       });
