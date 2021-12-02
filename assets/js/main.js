@@ -149,6 +149,5 @@ fetch(url)
         img.style.height = '250px';
         img.style.borderRadius = '.5rem';
       });
-      // console.log(obj[i].image);
     }
   });
