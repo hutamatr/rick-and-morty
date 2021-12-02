@@ -145,7 +145,7 @@ fetch(url)
       });
 
       homeImage.forEach((img) => {
-        img.setAttribute('src', item.image);
+        img.setAttribute('src', `${item.image}`);
         img.style.height = '250px';
         img.style.borderRadius = '.5rem';
       });
