@@ -1,0 +1,20 @@
+/*=============== ABOUT ===============*/
+
+.about {
+  &__container {
+    row-gap: 2rem;
+  }
+
+  &__data {
+    text-align: center;
+  }
+
+  &__description {
+    margin-bottom: $mb-2;
+  }
+
+  &__img {
+    width: 200px;
+    justify-self: center;
+  }
+}

@@ -1,0 +1,94 @@
+/*=============== FOOTER ===============*/
+.footer {
+  position: relative;
+  overflow: hidden;
+
+  &__img-one,
+  &__img-two {
+    position: absolute;
+    transition: 0.3s;
+  }
+
+  &__img-one {
+    width: 100px;
+    top: 6rem;
+    right: -2rem;
+  }
+
+  &__img-two {
+    width: 150px;
+    bottom: 4rem;
+    right: 4rem;
+  }
+
+  &__img-one:hover,
+  &__img-two:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  &__container {
+    row-gap: 2rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    margin-bottom: $mb-1;
+    font-weight: $font-medium;
+    color: $title-color;
+
+    &-img {
+      width: 20px;
+    }
+  }
+
+  &__description {
+    margin-bottom: $mb-2-5;
+  }
+
+  &__social {
+    display: flex;
+    column-gap: 0.75rem;
+
+    &-link {
+      display: inline-flex;
+      background: $container-color;
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      color: $title-color;
+      font-size: 1rem;
+
+      &:hover {
+        background: $body-color;
+      }
+    }
+  }
+
+  &__title {
+    font-size: $h3-font-size;
+    margin-bottom: $mb-1;
+  }
+
+  &__links {
+    display: grid;
+    row-gap: 0.35rem;
+  }
+
+  &__link {
+    font-size: $small-font-size;
+    color: $text-color;
+    transition: 0.3s;
+
+    &:hover {
+      color: $title-color;
+    }
+  }
+
+  &__copy {
+    display: block;
+    text-align: center;
+    font-size: $smaller-font-size;
+    margin-top: 4.5rem;
+  }
+}

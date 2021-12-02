@@ -1,0 +1,137 @@
+/*=============== HOME ===============*/
+
+.home {
+  &__content {
+    row-gap: 1rem;
+  }
+
+  &__group {
+    display: grid;
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  &__img {
+    height: 250px;
+    justify-self: center;
+  }
+
+  &__indicator {
+    width: 8px;
+    height: 8px;
+    background-color: $title-color;
+    border-radius: 50%;
+    position: absolute;
+    top: 7rem;
+    right: 2rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 48px;
+      background-color: $title-color;
+      top: -3rem;
+      right: 45%;
+    }
+  }
+
+  &__details-img {
+    position: absolute;
+    right: 0.5rem;
+  }
+
+  &__details-title,
+  &__details-subtitle {
+    display: block;
+    font-size: $small-font-size;
+    text-align: right;
+  }
+
+  &__subtitle {
+    font-size: $h3-font-size;
+    text-transform: uppercase;
+    margin-bottom: $mb-1;
+  }
+
+  &__title {
+    font-size: $biggest-font-size;
+    font-weight: $font-black;
+    line-height: 109%;
+    margin-bottom: $mb-1;
+  }
+
+  &__description {
+    margin-bottom: $mb-1;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*=============== BUTTONS ===============*/
+
+.button {
+  display: inline-block;
+  background-color: $first-color;
+  color: $title-color;
+  padding: 1rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: $font-medium;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: $first-color-alt;
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+  }
+
+  &--ghost {
+    border: 2px solid;
+    background-color: transparent;
+    border-radius: 3rem;
+    padding: 0.75rem 1.5rem;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  &--link {
+    color: $title-color;
+  }
+
+  &--flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
+}
+
+/* Swiper Class */
+
+.swiper-pagination {
+  position: initial;
+  margin-bottom: $mb-1;
+
+  &-bullet {
+    width: 5px;
+    height: 5px;
+    background-color: $title-color;
+    opacity: 1;
+
+    &-active {
+      width: 1.5rem;
+      height: 5px;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &-horizontal &-bullets &-bullet {
+    margin: 0 0.5rem;
+  }
+}

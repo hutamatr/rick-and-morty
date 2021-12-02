@@ -1,0 +1,26 @@
+/*=============== CATEGORY ===============*/
+
+.category {
+  &__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
+  }
+
+  &__data {
+    text-align: center;
+  }
+
+  &__img {
+    width: 150px;
+    margin-bottom: $mb-0-75;
+    transition: 0.4s;
+  }
+
+  &__title {
+    margin-bottom: $mb-0-25;
+  }
+
+  &__data:hover &__img {
+    transform: translateY(-0.5rem);
+  }
+}

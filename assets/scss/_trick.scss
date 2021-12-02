@@ -1,0 +1,78 @@
+/*=============== TRICK OR TREAT ===============*/
+
+.trick {
+  &__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  &__content {
+    position: relative;
+    background: $container-color;
+    border-radius: 1rem;
+    padding: 1.5rem 0 1rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 150px;
+    transition: 0.3s;
+  }
+
+  &__subtitle,
+  &__price {
+    display: block;
+  }
+
+  &__subtitle {
+    font-size: $smaller-font-size;
+    margin-bottom: $mb-0-5;
+  }
+
+  &__title,
+  &__price {
+    color: $title-color;
+    font-weight: $font-medium;
+    font-size: $normal-font-size;
+  }
+
+  &__button {
+    display: inline-flex;
+    padding: 0.5rem;
+    position: absolute;
+    transition: 0.5s;
+    bottom: 0;
+  }
+
+  &__cart {
+    left: -3rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.75rem;
+  }
+
+  &__love {
+    right: -3rem;
+    border-radius: 0.25rem 0.25rem 0.75rem 0.25rem;
+  }
+
+  &__icon {
+    // width: 25px;
+    // height: 20px;
+    font-size: 1.25rem;
+    color: $title-color;
+  }
+
+  &__content:hover &__img {
+    transform: translateY(-0.5rem);
+    transition: 0.5s;
+  }
+
+  &__content:hover &__cart {
+    left: 0;
+  }
+
+  &__content:hover &__love {
+    right: 0;
+  }
+}

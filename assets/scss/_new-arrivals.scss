@@ -1,0 +1,84 @@
+/*=============== NEW ARRIVALS ===============*/
+.new {
+  &__container {
+    padding-top: 1rem;
+  }
+
+  &__img {
+    width: 120px;
+    margin-bottom: $mb-0-5;
+    transition: 0.5s;
+  }
+
+  &__content {
+    position: relative;
+    background: $container-color;
+    width: 242px;
+    padding: 2rem 0 1.5rem 0;
+    border-radius: 0.75rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__tag {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    background-color: $first-color;
+    color: $title-color;
+    font-size: $small-font-size;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  &__title {
+    font-size: $normal-font-size;
+    font-weight: $font-medium;
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: $small-font-size;
+    margin-bottom: $mb-0-5;
+  }
+
+  &__prices {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
+
+  &__price {
+    font-weight: $font-medium;
+    color: $title-color;
+  }
+
+  &__discount {
+    color: $first-color;
+    font-size: $smaller-font-size;
+    text-decoration: line-through;
+    font-weight: $font-medium;
+  }
+
+  &__button {
+    display: inline-flex;
+    padding: 0.5rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.75rem;
+    position: absolute;
+    bottom: 0;
+    left: -3rem;
+    transition: 0.5s;
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+  }
+
+  &__content:hover &__img {
+    transform: translateY(-0.5rem);
+  }
+
+  &__content:hover &__button {
+    left: 0;
+  }
+}
