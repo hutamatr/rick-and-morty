@@ -125,7 +125,7 @@ sr.reveal('.about__img, .discount__data', { origin: 'right' });
 // Rick And Morty
 
 let obj = '';
-let url = 'https://rickandmortyapi.com/api/character/';
+const url = 'https://rickandmortyapi.com/api/character/';
 
 const homeImage = document.querySelectorAll('.home__img');
 const homeTitle = document.querySelectorAll('.home__title');
@@ -133,22 +133,26 @@ const homeSubtitle = document.querySelectorAll('.home__subtitle');
 
 fetch(url)
   .then((response) => response.json())
-  .then((data) => (obj = data))
+  .then((data) => (obj = data.results))
   .then(() => {
-    for (let item of obj.results) {
+    for (let i = 0; i < 2; i++) {
       homeSubtitle.forEach((subtitle) => {
-        subtitle.innerHTML = `${item.location.name}`;
-        console.log(item);
+        subtitle.innerHTML = `${obj[i].location.name}`;
+        console.log(obj[i]);
       });
 
       homeTitle.forEach((title) => {
-        title.innerHTML = `${item.name}`;
+        title.innerHTML = `${obj[i].name}`;
       });
 
       homeImage.forEach((img) => {
-        img.setAttribute('src', item.image);
+        img.setAttribute('src', obj[i].image);
         img.style.height = '250px';
         img.style.borderRadius = '.5rem';
       });
+      // console.log(obj[i]);
+      // console.log(`HomeSubtitle = ${homeSubtitle}`);
+      // console.log(`HomeTitle = ${homeTitle[i]}`);
+      // console.log(`HomeImage = ${homeImage[i]}`);
     }
   });
