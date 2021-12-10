@@ -130,14 +130,14 @@ const url = 'https://rickandmortyapi.com/api/character/';
 const homeImage = document.querySelectorAll('.home__img');
 const homeTitle = document.querySelectorAll('.home__title');
 const homeSubtitle = document.querySelectorAll('.home__subtitle');
+console.log(homeTitle);
 
 fetch(url)
   .then((response) => response.json())
   .then((data) => (obj = data.results))
   .then(() => {
-    console.log(obj)
+    console.log(obj);
     for (let i = 0; i < 2; i++) {
-      
       homeSubtitle.forEach((subtitle) => {
         subtitle.innerHTML = `${obj[i].location.name}`;
         // console.log(obj[i]);
