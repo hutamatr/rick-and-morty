@@ -135,7 +135,9 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => (obj = data.results))
   .then(() => {
+    console.log(obj)
     for (let i = 0; i < 2; i++) {
+      
       homeSubtitle.forEach((subtitle) => {
         subtitle.innerHTML = `${obj[i].location.name}`;
         // console.log(obj[i]);
@@ -162,16 +164,3 @@ const categoryImage = document.querySelectorAll('.category__image'),
   categoryDescription = document.querySelectorAll('.category__description');
 
 let newObj = '';
-
-fetch(url)
-  .then((response) => {
-    response.json();
-  })
-  .then((newData) => {
-    newObj = newData.results;
-  })
-  .then(() => {
-    for (let item of data.results) {
-      console.log(item);
-    }
-  });
