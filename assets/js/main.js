@@ -138,7 +138,7 @@ fetch(url)
     for (let i = 0; i < 2; i++) {
       homeSubtitle.forEach((subtitle) => {
         subtitle.innerHTML = `${obj[i].location.name}`;
-        console.log(obj[i]);
+        // console.log(obj[i]);
       });
 
       homeTitle.forEach((title) => {
@@ -154,5 +154,24 @@ fetch(url)
       // console.log(`HomeSubtitle = ${homeSubtitle}`);
       // console.log(`HomeTitle = ${homeTitle[i]}`);
       // console.log(`HomeImage = ${homeImage[i]}`);
+    }
+  });
+
+const categoryImage = document.querySelectorAll('.category__image'),
+  categoryTitle = document.querySelectorAll('.category__title'),
+  categoryDescription = document.querySelectorAll('.category__description');
+
+let newObj = '';
+
+fetch(url)
+  .then((response) => {
+    response.json();
+  })
+  .then((newData) => {
+    newObj = newData.results;
+  })
+  .then(() => {
+    for (let item of data.results) {
+      console.log(item);
     }
   });
