@@ -129,7 +129,44 @@ const url = 'https://rickandmortyapi.com/api/character/';
 
 const homeImage = document.querySelectorAll('.home__img');
 const homeTitle = document.querySelectorAll('.home__title');
+console.log(homeTitle)
 const homeSubtitle = document.querySelectorAll('.home__subtitle');
+const wrapperSlider = document.getElementById('wrapperSlider');
+console.log(wrapperSlider);
+
+function componentSlider(data){
+  return (  `<section class="swiper-slide">
+  <div class="home__content grid">
+    <div class="home__group">
+      <img src="${data.image}" alt="" class="home__img" />
+
+      <div class="home__indicator"></div>
+
+      <div class="home__details-img">
+        <h4 class="home__details-title">Lorem, ipsum dolor.</h4>
+        <span class="home__details-subtitle">Lorem ipsum dolor sit amet consectetur.</span>
+      </div>
+    </div>
+
+    <div class="home__data">
+      <h3 class="home__subtitle">${data.location.name}</h3>
+      <h1 class="home__title">
+        ${data.name}
+      </h1>
+      <p class="home__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur nulla architecto sapiente similique, qui voluptates!</p>
+
+      <div class="home__buttons">
+        <a href="#" class="button">Book Now</a>
+        <a href="#" class="button--link button--flex"
+          >Track Record
+          <i class="bx bx-right-arrow-alt button__icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>`
+)
+}
 
 fetch(url)
   .then((response) => response.json())
@@ -137,25 +174,13 @@ fetch(url)
   .then(() => {
     console.log(obj)
     for (let i = 0; i < 2; i++) {
-      
+      // console.log(wrapperSlider);
+      wrapperSlider.innerHTML +=componentSlider(obj[i]);
       homeSubtitle.forEach((subtitle) => {
         subtitle.innerHTML = `${obj[i].location.name}`;
         // console.log(obj[i]);
       });
 
-      homeTitle.forEach((title) => {
-        title.innerHTML = `${obj[i].name}`;
-      });
-
-      homeImage.forEach((img) => {
-        img.setAttribute('src', obj[i].image);
-        img.style.height = '250px';
-        img.style.borderRadius = '.5rem';
-      });
-      // console.log(obj[i]);
-      // console.log(`HomeSubtitle = ${homeSubtitle}`);
-      // console.log(`HomeTitle = ${homeTitle[i]}`);
-      // console.log(`HomeImage = ${homeImage[i]}`);
     }
   });
 
