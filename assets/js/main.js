@@ -107,60 +107,89 @@ function scrollUp() {
 }
 
 window.addEventListener('scroll', scrollUp);
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-
-const sr = ScrollReveal({
-  origin: 'top',
-  distance: '60px',
-  duration: 2000,
-  delay: 300,
-  reset: true,
-});
-
-sr.reveal('.home-swiper, .new-swiper, .nletter__container, .footer__img-one, .footer__img-two');
-sr.reveal('.category__data, .trick__content', { interval: 100 });
-sr.reveal('.about__data, .discount__img', { origin: 'left' });
-sr.reveal('.about__img, .discount__data', { origin: 'right' });
 
 // Rick And Morty
 
 let obj = '';
 const url = 'https://rickandmortyapi.com/api/character/';
+const swiperWrapper = document.getElementById('swiper-wrapper');
+const categoryContainer = document.getElementById('category-container');
 
-const homeImage = document.querySelectorAll('.home__img');
-const homeTitle = document.querySelectorAll('.home__title');
-const homeSubtitle = document.querySelectorAll('.home__subtitle');
-console.log(homeTitle);
+const swiperSlider = (image, title, subtitle) =>
+  `<section class="swiper-slide">
+              <div class="home__content grid">
+                <div class="home__group">
+                  <img src="${image}" alt="" class="home__img" />
+
+                  <div class="home__indicator"></div>
+
+                  <div class="home__details-img">
+                    <h4 class="home__details-title">Lorem, ipsum dolor.</h4>
+                  </div>
+                </div>
+
+                <div class="home__data">
+                  <h3 class="home__subtitle">${subtitle}.</h3>
+                  <h1 class="home__title">
+                    ${title}
+                  </h1>
+                  <p class="home__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur nulla architecto sapiente similique, qui voluptates!</p>
+
+                  <div class="home__buttons">
+                    <a href="#" class="button">Read More</a>
+                    <a href="#" class="button--link button--flex"
+                      >Track Record
+                      <i class="bx bx-right-arrow-alt button__icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>`;
+
+const categoryData = (image, name, location) =>
+  `<div class="category__data">
+            <img src="${image}" alt="" class="category__img" />
+            <h3 class="category__title">${name}</h3>
+            <p class="category__description">Location : ${location}</p>
+          </div>`;
+
+function imageSize(element, height, borderRadius) {
+  return element.forEach((img) => {
+    img.style.height = height;
+    img.style.borderRadius = borderRadius;
+  });
+}
 
 fetch(url)
   .then((response) => response.json())
   .then((data) => (obj = data.results))
   .then(() => {
-    console.log(obj);
-    for (let i = 0; i < 2; i++) {
-      homeSubtitle.forEach((subtitle) => {
-        subtitle.innerHTML = `${obj[i].location.name}`;
-        // console.log(obj[i]);
-      });
+    for (let i = 0; i <= 1; i++) {
+      swiperWrapper.innerHTML += swiperSlider(obj[i].image, obj[i].name, obj[i].location.name);
 
-      homeTitle.forEach((title) => {
-        title.innerHTML = `${obj[i].name}`;
-      });
+      const homeImage = document.querySelectorAll('.home__img');
+      imageSize(homeImage, '250px', '1rem');
+    }
 
-      homeImage.forEach((img) => {
-        img.setAttribute('src', obj[i].image);
-        img.style.height = '250px';
-        img.style.borderRadius = '.5rem';
-      });
-      // console.log(obj[i]);
-      // console.log(`HomeSubtitle = ${homeSubtitle}`);
-      // console.log(`HomeTitle = ${homeTitle[i]}`);
-      // console.log(`HomeImage = ${homeImage[i]}`);
+    for (let j = 2; j <= 10; j++) {
+      categoryContainer.innerHTML += categoryData(obj[j].image, obj[j].name, obj[j].location.name);
+
+      const categoryImage = document.querySelectorAll('.category__img');
+      imageSize(categoryImage, '200px', '.5rem');
     }
   });
 
-const categoryImage = document.querySelectorAll('.category__image'),
-  categoryTitle = document.querySelectorAll('.category__title'),
-  categoryDescription = document.querySelectorAll('.category__description');
+/*=============== SCROLL REVEAL ANIMATION ===============*/
 
-let newObj = '';
+// const sr = ScrollReveal({
+//   origin: 'top',
+//   distance: '50px',
+//   duration: 2000,
+//   delay: 100,
+//   reset: false,
+// });
+
+// sr.reveal('.home-swiper, .new-swiper, .nletter__container, .footer__img-one, .footer__img-two');
+// sr.reveal('.category__data, .trick__content', { interval: 100 });
+// sr.reveal('.about__data, .discount__img', { origin: 'left' });
+// sr.reveal('.about__img, .discount__data', { origin: 'right' });

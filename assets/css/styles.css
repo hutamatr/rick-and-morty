@@ -340,7 +340,8 @@ button {
   margin-bottom: 2rem;
 }
 .about__img {
-  width: 200px;
+  height: 450px;
+  border-radius: 0.5rem;
   justify-self: center;
 }
 
@@ -641,7 +642,7 @@ button {
   }
 
   .home__img {
-    height: 200px;
+    height: 300px;
   }
   .home__buttons {
     flex-direction: column;
