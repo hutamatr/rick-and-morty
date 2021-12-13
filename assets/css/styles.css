@@ -121,7 +121,7 @@ button {
   font-weight: 500;
 }
 .nav__logo-img {
-  width: 1.25rem;
+  width: 4rem;
 }
 .nav__link, .nav__logo, .nav__toggle, .nav__close {
   color: #191c1a;
@@ -355,7 +355,7 @@ button {
   position: relative;
   background: #d3ee76;
   border-radius: 1rem;
-  padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 1rem 1rem 1rem;
   text-align: center;
   overflow: hidden;
 }
@@ -422,6 +422,7 @@ button {
 .discount__img {
   width: 200px;
   justify-self: center;
+  border-radius: 0.5rem;
 }
 
 /*=============== NEW ARRIVALS ===============*/

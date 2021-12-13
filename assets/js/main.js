@@ -112,11 +112,9 @@ window.addEventListener('scroll', scrollUp);
 
 let obj = '';
 const url = 'https://rickandmortyapi.com/api/character/';
-const swiperWrapper = document.getElementById('swiper-wrapper');
-const categoryContainer = document.getElementById('category-container');
 
-const swiperSlider = (image, title, subtitle) =>
-  `<section class="swiper-slide">
+const swiperSlider = (image, title, subtitle) => {
+  const slider = `<section class="swiper-slide">
               <div class="home__content grid">
                 <div class="home__group">
                   <img src="${image}" alt="" class="home__img" />
@@ -146,12 +144,37 @@ const swiperSlider = (image, title, subtitle) =>
               </div>
             </section>`;
 
-const categoryData = (image, name, location) =>
-  `<div class="category__data">
+  return slider;
+};
+
+const categoryData = (image, name, location) => {
+  const category = `<section class="category__data">
             <img src="${image}" alt="" class="category__img" />
             <h3 class="category__title">${name}</h3>
             <p class="category__description">Location : ${location}</p>
-          </div>`;
+          </section>`;
+
+  return category;
+};
+
+const trickContent = (image, name, status, location) => {
+  const trick = `<section class="trick__content">
+            <img src="${image}" alt="" class="trick__img" />
+            <h3 class="trick__title">${name}</h3>
+            <span class="trick__subtitle">Status : ${status}</span>
+            <span class="trick__price">location : ${location}</span>
+
+            <button class="button trick__button trick__cart">
+              <i class="bx bx-cart-alt trick__icon"></i>
+            </button>
+
+            <button class="button trick__button trick__love">
+              <i class="bx bx-heart trick__icon"></i>
+            </button>
+          </section>`;
+
+  return trick;
+};
 
 function imageSize(element, height, borderRadius) {
   return element.forEach((img) => {
@@ -164,6 +187,10 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => (obj = data.results))
   .then(() => {
+    const swiperWrapper = document.getElementById('swiper-wrapper');
+    const categoryContainer = document.getElementById('category-container');
+    const trickContainer = document.querySelector('.trick__container');
+
     for (let i = 0; i <= 1; i++) {
       swiperWrapper.innerHTML += swiperSlider(obj[i].image, obj[i].name, obj[i].location.name);
 
@@ -177,19 +204,25 @@ fetch(url)
       const categoryImage = document.querySelectorAll('.category__img');
       imageSize(categoryImage, '200px', '.5rem');
     }
+
+    for (let k = 11; k <= 17; k++) {
+      trickContainer.innerHTML += trickContent(obj[k].image, obj[k].name, obj[k].status, obj[k].location.name);
+
+      const trickImage = document.querySelectorAll('.trick__img');
+      imageSize(trickImage, '120px', '.5rem');
+    }
   });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-
 // const sr = ScrollReveal({
 //   origin: 'top',
-//   distance: '50px',
+//   distance: '60px',
 //   duration: 2000,
 //   delay: 100,
 //   reset: false,
 // });
 
-// sr.reveal('.home-swiper, .new-swiper, .nletter__container, .footer__img-one, .footer__img-two');
+// sr.reveal('.new-swiper, .nletter__container, .footer__img-one, .footer__img-two');
 // sr.reveal('.category__data, .trick__content', { interval: 100 });
 // sr.reveal('.about__data, .discount__img', { origin: 'left' });
 // sr.reveal('.about__img, .discount__data', { origin: 'right' });
